@@ -1294,7 +1294,11 @@ class MY_Model extends CI_Model
                         if(array_key_exists('where',$request['parameters']))
                         {
                             unset($data[$key]);
-                        }
+                        }else{
+			    // If result not find then blank (Array, Object) return.
+			    // Note If you want then add. otherwise no need.
+			    $data [$key] [$relation_key]=array();
+			}
                     }
                 }
             }
